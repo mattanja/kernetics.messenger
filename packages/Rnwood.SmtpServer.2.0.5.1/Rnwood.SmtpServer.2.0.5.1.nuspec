@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Rnwood.SmtpServer</id>
+    <version>2.0.5.1</version>
+    <authors>Robert N Wood &lt;rob@rnwood.co.uk&gt;</authors>
+    <owners>Robert N Wood &lt;rob@rnwood.co.uk&gt;</owners>
+    <licenseUrl>http://smtp4dev.codeplex.com/license</licenseUrl>
+    <projectUrl>http://smtp4dev.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Rnwood.SmtpServer is an SMTP server component that can be embedded in application to allow them to receive and process emails using the SMTP protocol. This component powers http://smtp4dev.codeplex.com/</description>
+    <releaseNotes />
+    <copyright>Copyright 2012</copyright>
+    <tags>SMTP</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+    </frameworkAssemblies>
+    <references>
+      <reference file="Rnwood.SmtpServer.dll" />
+    </references>
+  </metadata>
+</package>
