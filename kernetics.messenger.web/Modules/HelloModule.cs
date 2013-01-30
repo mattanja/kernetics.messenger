@@ -7,11 +7,16 @@ using System.Threading.Tasks;
 
 namespace kernetics.messenger.web.Modules
 {
-    public class HelloModule : NancyModule
+    public class HomeModule : NancyModule
     {
-        public HelloModule()
+        public HomeModule()
         {
-            Get["/"] = parameters => "Hello World";
+            Get["/"] = _ =>
+            {
+                return View["start.cshtml"];
+            };
+
+            Get["/error"] = _ => { throw new NotImplementedException(); };
         }
     }
 }

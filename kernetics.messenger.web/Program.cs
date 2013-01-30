@@ -20,7 +20,17 @@ namespace kernetics.messenger.web
 
             var smtpServer = new Rnwood.SmtpServer.DefaultServer();
             smtpServer.MessageReceived += smtpServer_MessageReceived;
-            smtpServer.Start();
+
+            try
+            {
+                smtpServer.Start();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("SMTP Server could not be started; " + ex.Message);
+            }
+
+            //Console.Clear();
 
             Console.WriteLine("SMTP server state: " + (smtpServer.IsRunning ? "Running" : "Not running"));
 
