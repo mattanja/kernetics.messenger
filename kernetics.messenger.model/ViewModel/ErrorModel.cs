@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace kernetics.messenger.model
+namespace kernetics.messenger.model.ViewModel
 {
-    class Member
+    public class ErrorModel
     {
+        public string Message { get; set; }
     }
 }

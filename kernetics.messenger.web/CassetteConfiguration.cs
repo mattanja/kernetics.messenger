@@ -17,8 +17,8 @@ namespace kernetics.messenger.web
             // This default configuration treats each file as a separate 'bundle'.
             // In production the content will be minified, but the files are not combined.
             // So you probably want to tweak these defaults!
-            bundles.AddPerIndividualFile<StylesheetBundle>("Content");
-            bundles.AddPerIndividualFile<ScriptBundle>("Scripts");
+            bundles.AddPerIndividualFile<StylesheetBundle>("public/template/css");
+            //bundles.AddPerIndividualFile<ScriptBundle>("Scripts");
 
             // To combine files, try something like this instead:
             //   bundles.Add<StylesheetBundle>("Content");

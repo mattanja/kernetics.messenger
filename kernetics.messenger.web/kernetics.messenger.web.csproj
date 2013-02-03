@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="CassetteConfiguration.cs" />
     <Compile Include="CustomRootPathProvider.cs" />
+    <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Program.cs" />
@@ -128,6 +129,12 @@
     <Content Include="public\template\js\vendor\modernizr-2.6.2.min.js" />
     <Content Include="public\template\robots.txt" />
     <None Include="Views\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kernetics.messenger.model\kernetics.messenger.model.csproj">
+      <Project>{5885818a-d2c7-4414-92c0-e8ad2a5897c6}</Project>
+      <Name>kernetics.messenger.model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

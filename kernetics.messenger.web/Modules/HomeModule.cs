@@ -1,4 +1,5 @@
-﻿using Nancy;
+﻿using kernetics.messenger.model.ViewModel;
+using Nancy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,16 @@ using System.Threading.Tasks;
 
 namespace kernetics.messenger.web.Modules
 {
-    public class HomeModule : NancyModule
+    public class HomeModule : BaseModule
     {
         public HomeModule()
         {
             Get["/"] = _ =>
             {
-                return View["start.cshtml"];
+                this.Model = this.GetDefaultModel();
+                this.Model.Page.Title = "Start";
+
+                return View["start.cshtml", this.Model];
             };
 
             Get["/error"] = _ => { throw new NotImplementedException(); };
