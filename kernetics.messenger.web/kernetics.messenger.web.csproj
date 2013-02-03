@@ -127,6 +127,7 @@
     <Content Include="public\template\js\vendor\jquery-1.9.0.min.js" />
     <Content Include="public\template\js\vendor\modernizr-2.6.2.min.js" />
     <Content Include="public\template\robots.txt" />
+    <None Include="Views\_Layout.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
