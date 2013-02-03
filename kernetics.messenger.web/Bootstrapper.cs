@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace kernetics.messenger.web
 {
-    public class NancyBootstrapper : DefaultNancyBootstrapper
+    public class Bootstrapper : DefaultNancyBootstrapper
     {
         protected override void ApplicationStartup(Nancy.TinyIoc.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
         {
@@ -28,27 +28,27 @@ namespace kernetics.messenger.web
                     };
                 }
 
+                Console.WriteLine("Error");
                 return null;
             };
 
             base.ApplicationStartup(container, pipelines);
         }
 
-        /// <summary>
-        /// Configure additional conventions.
-        /// </summary>
-        /// <param name="nancyConventions"></param>
         protected override void ConfigureConventions(Nancy.Conventions.NancyConventions nancyConventions)
         {
             // https://github.com/NancyFx/Nancy/wiki/Managing-static-content
 
             base.ConfigureConventions(nancyConventions);
+            nancyConventions.StaticContentsConventions.Add(Nancy.Conventions.StaticContentConventionBuilder.AddDirectory("/", "public"));
+        }
 
-            //nancyConventions.StaticContentsConventions.Add(
-            //    StaticContentConventionBuilder.AddDirectory(@"views/Template")
-            //);
-
-            
+        protected override Type RootPathProvider
+        {
+            get
+            {
+                return typeof(CustomRootPathProvider);
+            }
         }
     }
 }

@@ -32,6 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.60.4609.17023\lib\net20\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette">
+      <HintPath>..\packages\Cassette.2.0.0\lib\net40-client\Cassette.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Nancy">
+      <HintPath>..\packages\Cassette.Nancy.2.0.0\lib\net40\Cassette.Nancy.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.15.3\lib\net40\Nancy.dll</HintPath>
     </Reference>
@@ -40,6 +49,13 @@
     </Reference>
     <Reference Include="Nancy.Serialization.ServiceStack">
       <HintPath>..\packages\Nancy.Serialization.ServiceStack.0.15.3\lib\net40\Nancy.Serialization.ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor, Version=0.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.15.3\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
     <Reference Include="Rnwood.SmtpServer">
       <HintPath>..\packages\Rnwood.SmtpServer.2.0.5.1\lib\net20\Rnwood.SmtpServer.dll</HintPath>
@@ -50,7 +66,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.15.3\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,15 +77,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modules\HelloModule.cs" />
+    <Compile Include="CassetteConfiguration.cs" />
+    <Compile Include="CustomRootPathProvider.cs" />
+    <Compile Include="Modules\HomeModule.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="public\template\.htaccess" />
+    <None Include="public\template\CHANGELOG.md" />
+    <None Include="public\template\CONTRIBUTING.md" />
+    <None Include="public\template\doc\crossdomain.md" />
+    <None Include="public\template\doc\css.md" />
+    <None Include="public\template\doc\extend.md" />
+    <None Include="public\template\doc\faq.md" />
+    <None Include="public\template\doc\htaccess.md" />
+    <None Include="public\template\doc\html.md" />
+    <None Include="public\template\doc\js.md" />
+    <None Include="public\template\doc\misc.md" />
+    <None Include="public\template\doc\TOC.md" />
+    <None Include="public\template\doc\usage.md" />
+    <None Include="public\template\LICENSE.md" />
+    <None Include="public\template\README.md" />
+    <None Include="Views\Home\start.cshtml" />
+    <None Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="public\template\.gitattributes" />
+    <Content Include="public\template\.gitignore" />
+    <Content Include="public\template\404.html" />
+    <Content Include="public\template\apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="public\template\apple-touch-icon-144x144-precomposed.png" />
+    <Content Include="public\template\apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="public\template\apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="public\template\apple-touch-icon-precomposed.png" />
+    <Content Include="public\template\apple-touch-icon.png" />
+    <Content Include="public\template\crossdomain.xml" />
+    <Content Include="public\template\css\main.css" />
+    <Content Include="public\template\css\normalize.css" />
+    <Content Include="public\template\favicon.ico" />
+    <Content Include="public\template\humans.txt" />
+    <Content Include="public\template\img\.gitignore" />
+    <Content Include="public\template\index.html" />
+    <Content Include="public\template\js\main.js" />
+    <Content Include="public\template\js\plugins.js" />
+    <Content Include="public\template\js\vendor\jquery-1.9.0.min.js" />
+    <Content Include="public\template\js\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="public\template\robots.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.15.3\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.15.3\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
