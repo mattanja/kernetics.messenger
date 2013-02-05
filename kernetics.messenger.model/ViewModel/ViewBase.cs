@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace kernetics.messenger.model.ViewModel
 {
-    public class ViewBase
-    {
+    public class ViewBase {
         public PageBase Page { get; set; }
-        public ContentBase Content { get; set; }
+    }
+
+    public class ViewBase<TContent> : ViewBase where TContent : ContentBase
+    {
+        public TContent Content { get; set; }
     }
 }

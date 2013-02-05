@@ -12,8 +12,8 @@ namespace kernetics.messenger.web.Modules {
     public class HomeModule : BaseModule {
         public HomeModule(IDataStore dataStore) {
             Get["/"] = _ => {
-                this.Model = this.GetDefaultModel();
-                this.Model.Page.Title = "Start";
+                var model = this.GetDefaultModel<StartContent>();
+                model.Page.Title = "Start";
 
                 using (var session = dataStore.DocumentStore.OpenSession()) {
                     session.Store(new Member() { Id = Guid.NewGuid(), Firstname = "Test", Lastname = "Last", Email = "test@test.com" });
@@ -23,10 +23,10 @@ namespace kernetics.messenger.web.Modules {
                 using (var session = dataStore.DocumentStore.OpenSession()) {
                     var content = new StartContent();
                     content.Members = session.Query<Member>().ToList();
-                    this.Model.Content = content;
+                    model.Content = content;
                 }
 
-                return View["start.cshtml", this.Model];
+                return View["start.cshtml", model];
             };
 
             Get["/error"] = _ => { throw new NotImplementedException(); };

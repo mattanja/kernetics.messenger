@@ -10,8 +10,6 @@ namespace kernetics.messenger.web.Modules
 {
     public abstract class BaseModule : NancyModule
     {
-        public ViewBase Model { get; set; }
-
         public BaseModule()
         {
         }
@@ -24,11 +22,11 @@ namespace kernetics.messenger.web.Modules
         /// <summary>
         /// Setup default page model properties.
         /// </summary>
-        protected ViewBase GetDefaultModel(ViewBase model = null)
+        protected ViewBase<TContent> GetDefaultModel<TContent>(ViewBase<TContent> model = null) where TContent : ContentBase
         {
             if (model == null)
             {
-                model = new ViewBase();
+                model = new ViewBase<TContent>();
             }
 
             var page = new PageBase()
