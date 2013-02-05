@@ -64,6 +64,7 @@
       <HintPath>..\packages\ServiceStack.Text.3.9.33\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -104,7 +105,9 @@
     <None Include="public\template\LICENSE.md" />
     <None Include="public\template\README.md" />
     <None Include="Views\Home\start.cshtml" />
-    <None Include="web.config" />
+    <None Include="web.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="public\template\.gitattributes" />
@@ -131,6 +134,10 @@
     <None Include="Views\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\kernetics.messenger.database\kernetics.messenger.database.csproj">
+      <Project>{042e073b-878e-4ef6-8e3c-a1e4f432059c}</Project>
+      <Name>kernetics.messenger.database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\kernetics.messenger.model\kernetics.messenger.model.csproj">
       <Project>{5885818a-d2c7-4414-92c0-e8ad2a5897c6}</Project>
       <Name>kernetics.messenger.model</Name>

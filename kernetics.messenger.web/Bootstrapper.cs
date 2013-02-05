@@ -1,4 +1,5 @@
-﻿using Nancy;
+﻿using kernetics.messenger.model.Services;
+using Nancy;
 using Nancy.Conventions;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace kernetics.messenger.web
     {
         protected override void ApplicationStartup(Nancy.TinyIoc.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
         {
+            container.Register<IDataStore>(new kernetics.messenger.database.DataStore());
+
             pipelines.OnError += (context, exception) =>
             {
                 if (exception is Exception)
