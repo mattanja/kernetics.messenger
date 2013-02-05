@@ -15,14 +15,14 @@ namespace kernetics.messenger.database
             var documentStore = new EmbeddableDocumentStore
             {
                 DataDirectory = "Data",
-                UseEmbeddedHttpServer = true
+                UseEmbeddedHttpServer = true,
             };
-
-            documentStore.Initialize();
 
             try
             {
-                Raven.Database.Server.NonAdminHttp.EnsureCanListenToWhenInNonAdminContext(documentStore.HttpServer.Configuration.Port);
+                documentStore.Configuration.Port = 8881;
+                Raven.Database.Server.NonAdminHttp.EnsureCanListenToWhenInNonAdminContext(documentStore.Configuration.Port);
+                documentStore.Initialize();
             }
             catch (Exception ex)
             {

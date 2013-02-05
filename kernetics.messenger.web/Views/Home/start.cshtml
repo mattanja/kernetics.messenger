@@ -1,10 +1,16 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<object>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<kernetics.messenger.model.ViewModel.ViewBase>
 
 @{
     Layout = "_Layout.cshtml";
+    
+    var startContent = this.Model.Content as kernetics.messenger.model.ViewModel.StartContent;
 }
 
 <h2>Home</h2>
 <div>Start</div>
 
-
+<ul>
+@foreach (var member in startContent.Members) {
+    <li>@member.Id @member.Email</li>
+}
+</ul>
