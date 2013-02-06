@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace kernetics.messenger.model.ViewModel
 {
+    /// <summary>
+    /// Base view model for settings of the page and layout.
+    /// </summary>
     public class PageBase
     {
         private List<ErrorModel> errors;

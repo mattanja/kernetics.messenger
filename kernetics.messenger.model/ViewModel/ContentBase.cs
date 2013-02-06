@@ -5,7 +5,10 @@ using System.Text;
 
 namespace kernetics.messenger.model.ViewModel
 {
-    public class ContentBase
+    /// <summary>
+    /// Base class for the content of a view (generic parameter of ViewBase).
+    /// </summary>
+    public abstract class ContentBase
     {
     }
 }
