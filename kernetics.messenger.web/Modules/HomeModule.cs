@@ -29,6 +29,18 @@ namespace kernetics.messenger.web.Modules {
                 return View["start.cshtml", model];
             };
 
+            Get["/cleanup"] = _ => {
+                var model = this.GetDefaultModel<StartContent>();
+                model.Page.Title = "Cleanup";
+
+                using (var session = dataStore.DocumentStore.OpenSession()) {
+                    //dataStore.DocumentStore.DatabaseCommands.DeleteByIndex
+                    //session.SaveChanges();
+                }
+
+                return View["start.cshtml", model];
+            };
+
             Get["/error"] = _ => { throw new NotImplementedException(); };
         }
     }

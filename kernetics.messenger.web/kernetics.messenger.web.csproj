@@ -44,6 +44,9 @@
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.15.3\lib\net40\Nancy.dll</HintPath>
     </Reference>
+    <Reference Include="Nancy.Authentication.Forms">
+      <HintPath>..\packages\Nancy.Authentication.Forms.0.15.3\lib\net40\Nancy.Authentication.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy.Hosting.Self">
       <HintPath>..\packages\Nancy.Hosting.Self.0.15.3\lib\net40\Nancy.Hosting.Self.dll</HintPath>
     </Reference>
@@ -91,6 +94,9 @@
     <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Modules\ListModule.cs" />
+    <Compile Include="Modules\LoginModule.cs" />
+    <Compile Include="Modules\SecureModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -112,7 +118,9 @@
     <None Include="public\template\doc\usage.md" />
     <None Include="public\template\LICENSE.md" />
     <None Include="public\template\README.md" />
+    <None Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Views\Home\start.cshtml" />
+    <None Include="Views\List\index.cshtml" />
     <None Include="web.config">
       <SubType>Designer</SubType>
     </None>
@@ -139,6 +147,9 @@
     <Content Include="public\template\js\vendor\jquery-1.9.0.min.js" />
     <Content Include="public\template\js\vendor\modernizr-2.6.2.min.js" />
     <Content Include="public\template\robots.txt" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <None Include="Views\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>

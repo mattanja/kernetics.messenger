@@ -22,7 +22,7 @@ namespace kernetics.messenger.web.Modules
         /// <summary>
         /// Setup default page model properties.
         /// </summary>
-        protected ViewBase<TContent> GetDefaultModel<TContent>(ViewBase<TContent> model = null) where TContent : ContentBase
+        protected ViewBase<TContent> GetDefaultModel<TContent>(ViewBase<TContent> model = null, string title = null) where TContent : ContentBase
         {
             if (model == null)
             {
@@ -33,6 +33,7 @@ namespace kernetics.messenger.web.Modules
             {
                 IsAuthenticated = this.Context.CurrentUser != null,
                 PreFixTitle = "messenger -",
+                Title = title,
                 CurrentUserName = this.Context.CurrentUser != null ? this.Context.CurrentUser.UserName : "",
                 Errors = new List<ErrorModel>()
             };

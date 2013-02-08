@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Nancy">
+      <HintPath>..\packages\Nancy.0.15.3\lib\net40\Nancy.dll</HintPath>
+    </Reference>
     <Reference Include="Raven.Abstractions">
       <HintPath>..\packages\RavenDB.Client.2.0.2230\lib\net40\Raven.Abstractions.dll</HintPath>
     </Reference>
@@ -50,8 +53,11 @@
     <Compile Include="Mail\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IDataStore.cs" />
+    <Compile Include="User\User.cs" />
     <Compile Include="ViewModel\ContentBase.cs" />
     <Compile Include="ViewModel\ErrorModel.cs" />
+    <Compile Include="ViewModel\List\ListContent.cs" />
+    <Compile Include="ViewModel\Login\LoginContent.cs" />
     <Compile Include="ViewModel\PageBase.cs" />
     <Compile Include="ViewModel\StartContent.cs" />
     <Compile Include="ViewModel\ViewBase.cs" />
