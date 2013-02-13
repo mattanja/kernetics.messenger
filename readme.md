@@ -1,4 +1,15 @@
-﻿
+
+mono-project
+============
+
+I'm giving up on this project because of the state of mono. I don't want to invest too much time into this,
+but to me, mono is unusable. The Linux (Ubuntu) packages are outdated, the source is not easy to compile,
+documentation is not very good and the implementation is still far behind the current .NET version. I know
+it's open source and I should not complain but do something about it... Anyway, "messenger" needs to be
+implemented and it must run on Linux, so I'm switching to play! framework on JVM with this project before
+investing the time into learning NancyFX only to discover it won't run on mono.
+https://github.com/mattanja/messenger
+
 messenger
 =========
 
